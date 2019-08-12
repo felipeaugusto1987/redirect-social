@@ -1,0 +1,35 @@
+<script type="text/javascript">
+
+function getUrlParameter(name) {
+    name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+    var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+    var results = regex.exec(location.search);
+    return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+};
+
+var canal = getUrlParameter("canal");
+var param = getUrlParameter("param");
+var produto = getUrlParameter("prod");
+var prod_msg;
+var incentivo_msg;
+
+if (produto === 'bk'){
+    prod_msg = 'uma bike';
+    incentivo_msg = 'bora pedalar';
+}else{
+    prod_msg = 'um produto';
+    incentivo_msg = 'bora conhecer';
+}
+
+
+if (canal === 'w'){
+	window.location.replace("https://api.whatsapp.com/send?text=Oi!%20Acabei%20de%20pedir%20uma%20"+ prod_msg +"%20sensacional%20na%20Loja%20PWA%2C%20e%20lembrei%20de%20voc%C3%AA!%20Entra%20l%C3%A1%20e%20"+ incentivo_msg +"!");
+}
+else if (canal === 't'){
+	window.location.replace("");
+}
+else if (canal === 'f'){
+	window.location.replace("");
+}
+
+</script>
